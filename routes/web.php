@@ -23,6 +23,7 @@ Route::get('/', function () {
 Route::resource('articles','ArticlesController');
 
 
+
 function qerLog() {
     DB::listen(function($qer){
         var_dump($qer->sql);
