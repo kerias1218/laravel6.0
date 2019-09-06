@@ -8,6 +8,8 @@
             @forelse($articles as $item)
                 <li>
                     [{{ $item->id }}] {{ $item->title }}
+
+                    <small>{{ $item->content }}</small> |
                     <small>{{ $item->user->name }}</small>
                 </li>
             @empty
@@ -17,8 +19,13 @@
         </ul>
     </div>
 
+
     @if($articles->count())
         <div class="text-center">
+            <a href="{{ route('articles.create') }}" class="btn btn-primary">
+                글 등록하기
+            </a>
+
             {!! $articles->render() !!}
         </div>
     @endif

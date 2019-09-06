@@ -22,6 +22,9 @@
                 <button type="submit" class="btn btn-primary">
                     저장하기
                 </button>
+                <a href="{{ route('articles.index') }}" class="btn btn-primary">
+                    리스트
+                </a>
             </div>
         </form>
     </div>
