@@ -53,4 +53,11 @@ class ArticlesController extends Controller
         return redirect(route('articles.index'))
             ->with('flash_message','저장 되었습니다.');
     }
+    public function show($id) {
+
+        $article = \App\Article::findOrFail($id);
+        dd($article);
+        return $article;
+
+    }
 }

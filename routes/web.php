@@ -22,7 +22,18 @@ Route::get('/', function () {
 
 Route::resource('articles','ArticlesController');
 
+Route::get('mail',function() {
+    $article = App\Article::with('user')->find(1);
 
+    return Mail::send(
+        'emails.articles.created',
+        compact('article'),
+        function($message) use ($article) {
+            $message->to('kerias@naver.com');
+            $message->subject('새글 등록'.$article->title);
+        }
+    );
+});
 
 function qerLog() {
     DB::listen(function($qer){
