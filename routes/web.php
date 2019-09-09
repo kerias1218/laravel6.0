@@ -59,13 +59,7 @@ EDT;
 });
 
 
-Route::get('docs/{file?}', function($file = null) {
-
-    $text = (new App\Documentation)->get($file);
-
-    return app(Parsedown::class)->text($text);
-
-});
+Route::get('docs/{file?}', 'DocsController@show');
 
 function qerLog() {
     DB::listen(function($qer){
